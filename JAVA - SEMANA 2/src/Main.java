@@ -25,6 +25,12 @@ public class Main {
         System.out.println(suj1.hashCode());
         System.out.println(suj2.hashCode());
 
+        // LOMBOX
+        LombokClass prueba = LombokClass.builder()
+                .nombre("Igna")
+                .edad(30)
+                .build();
 
+        System.out.println(prueba.getNombre());
     }
 }
