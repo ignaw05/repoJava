@@ -1,0 +1,45 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Eclipse / IntelliJ / NetBeans
+*.project
+*.classpath
+*.settings/
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+build/
+
+# Logs
+*.log
+
+# Compiled source #
+bin/
+target/
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# Others
+.vscode/
+
