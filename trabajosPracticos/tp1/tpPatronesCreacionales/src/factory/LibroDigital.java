@@ -1,10 +1,13 @@
 package main.java.factory;
 
 public class LibroDigital extends Libro{
-    private String titulo;
+
+    public LibroDigital(String titulo, String autor, int precio) {
+        super(titulo, autor, precio);
+    }
 
     @Override
-    void leer() {
-        System.out.println("El titulo es '" + titulo + "' y es digital");
+    public void leerDatos() {
+        System.out.println("El libro "+this.getTitulo()+" ($"+this.getPrecio()+") es de " + this.getAutor() + " y es digital");
     }
 }

@@ -1,10 +1,13 @@
 package main.java.factory;
 
 public class LibroFisico extends Libro{
-    private String titulo;
+
+    public LibroFisico(String titulo, String autor, int precio) {
+        super(titulo, autor, precio);
+    }
 
     @Override
-    void leer() {
-        System.out.println("El titulo es '" + titulo + "' y es fisico");
+    public void leerDatos() {
+        System.out.println("El libro "+this.getTitulo()+" ($"+this.getPrecio()+") es de " + this.getAutor() + " y es físico");
     }
 }
