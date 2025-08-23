@@ -1,4 +1,10 @@
 package main.java.abstractfactory;
 
-public class AdminFactory {
+public class AdminFactory implements AbstractFactory{
+    public InterfazUI crearInterfaz() {
+        return new AdminUI();
+    }
+    public MetodoEnvio crearMetodoEnvio() {
+        return new EnvioExpress();
+    }
 }

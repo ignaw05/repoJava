@@ -1,5 +1,9 @@
 package main.java.builder;
 
+import main.java.abstractfactory.AbstractFactory;
+import main.java.abstractfactory.InterfazUI;
+import main.java.abstractfactory.MetodoEnvio;
+
 import java.time.LocalDate;
 
 
@@ -9,6 +13,8 @@ public class Usuario {
     private String direccion;
     private String telefono;
     private LocalDate fechaNacimiento;
+    private InterfazUI interfaz;
+    private MetodoEnvio metodoEnvio;
 
     public Usuario(Builder builder) {
         this.nombre = builder.nombre;
@@ -58,6 +64,17 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario[nombre=" + nombre + ", email=" + email + ", telefono=" + telefono + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento+"]";
+    }
+
+    public void setTipoUsuario(AbstractFactory factory) {
+        this.interfaz = factory.crearInterfaz();
+        this.metodoEnvio = factory.crearMetodoEnvio();
+    }
+
+    public void iniciarSesion(){
+        System.out.println("Usuario: @"+this.getNombre());
+        interfaz.mostrar();
+        metodoEnvio.enviar();
     }
 
     public String getNombre() {

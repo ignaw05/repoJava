@@ -1,4 +1,5 @@
 package main.java.abstractfactory;
 
-public class InterfazUI {
+public interface InterfazUI {
+    void mostrar();
 }

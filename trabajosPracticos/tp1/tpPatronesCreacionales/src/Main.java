@@ -1,5 +1,6 @@
 package main.java;
 
+import main.java.abstractfactory.*;
 import main.java.factory.*;
 import main.java.prototype.*;
 import main.java.singleton.*;
@@ -29,9 +30,6 @@ public class Main {
         lib1.leerDatos(); // Libros creados con el parametro "tipo"
         lib2.leerDatos();
 
-        // ABSTRACT FACTORY
-
-
         // BUILDER
         System.out.println("\n--- BUILDER ---");
         Usuario us1 = new Usuario.Builder()
@@ -51,6 +49,18 @@ public class Main {
 
         System.out.println(us1); // Como son opcionales los atributos, no tiene direccion
         System.out.println(us2);
+
+        // ABSTRACT FACTORY
+        System.out.println("\n--- ABSTRACT FACTORY ---");
+        AbstractFactory factory;
+
+        factory = new AdminFactory(); // PARA ADMIN
+        us1.setTipoUsuario(factory); // Uso el mismo usuario de arriba, pero le asigno un tipo de usuario
+        us1.iniciarSesion();
+
+        factory = new UsuarioFactory(); // PARA USER
+        us2.setTipoUsuario(factory);
+        us2.iniciarSesion();
 
         // PROTOTYPE
         System.out.println("\n--- PROTOTYPE ---");

@@ -1,4 +1,7 @@
 package main.java.abstractfactory;
 
-public class UsuarioUI {
+public class UsuarioUI implements  InterfazUI{
+    public void mostrar() {
+        System.out.println("Mostrando Interfaz de un usuario normal");
+    }
 }
