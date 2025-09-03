@@ -1,10 +1,8 @@
-package main.java;
-
-import main.java.abstractfactory.*;
-import main.java.factory.*;
-import main.java.prototype.*;
-import main.java.singleton.*;
-import main.java.builder.*;
+import abstractfactory.*;
+import factory.*;
+import prototype.*;
+import singleton.*;
+import builder.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -27,6 +25,7 @@ public class Main {
         System.out.println("\n--- FACTORY ---");
         Libro lib1 = LogisticaLibro.crearLibro("Martin Fierro","José Hernández",20000,"Digital");
         Libro lib2 = LogisticaLibro.crearLibro("Don Quijote","Miguel de Cervantes",35000,"FISICO");
+
         lib1.leerDatos(); // Libros creados con el parametro "tipo"
         lib2.leerDatos();
 

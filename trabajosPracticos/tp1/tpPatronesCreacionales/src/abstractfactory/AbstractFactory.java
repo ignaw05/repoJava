@@ -1,4 +1,4 @@
-package main.java.abstractfactory;
+package abstractfactory;
 
 public interface AbstractFactory {
     InterfazUI crearInterfaz();

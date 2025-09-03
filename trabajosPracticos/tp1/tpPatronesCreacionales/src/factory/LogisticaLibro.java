@@ -1,4 +1,4 @@
-package main.java.factory;
+package factory;
 
 public class LogisticaLibro {
     /**
@@ -8,7 +8,7 @@ public class LogisticaLibro {
         switch (tipo.toLowerCase()) {
             case "digital": return new LibroDigital(titulo,autor,precio);
             case "fisico": return new LibroFisico(titulo,autor,precio);
-            default: throw new IllegalArgumentException("Tipo desconocido");
+            default: throw new IllegalArgumentException("Tipo de libro desconocido");
         }
     }
 }

@@ -1,10 +1,10 @@
-package main.java.singleton;
+package singleton;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import main.java.factory.Libro;
+import factory.Libro;
 
 public class Database {
     private static Database instance;

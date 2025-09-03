@@ -1,4 +1,4 @@
-package main.java.abstractfactory;
+package abstractfactory;
 
 public class UsuarioFactory implements AbstractFactory{
 

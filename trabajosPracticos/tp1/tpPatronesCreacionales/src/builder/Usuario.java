@@ -1,8 +1,8 @@
-package main.java.builder;
+package builder;
 
-import main.java.abstractfactory.AbstractFactory;
-import main.java.abstractfactory.InterfazUI;
-import main.java.abstractfactory.MetodoEnvio;
+import abstractfactory.AbstractFactory;
+import abstractfactory.InterfazUI;
+import abstractfactory.MetodoEnvio;
 
 import java.time.LocalDate;
 

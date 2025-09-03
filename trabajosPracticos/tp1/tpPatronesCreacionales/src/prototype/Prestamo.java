@@ -1,8 +1,8 @@
-package main.java.prototype;
+package prototype;
 
 import java.time.LocalDate;
-import main.java.builder.Usuario;
-import main.java.factory.Libro;
+import builder.Usuario;
+import factory.Libro;
 
 public class Prestamo implements Cloneable { // Si no implementa CLoneable no puede clonarse
     private Libro libro;
