@@ -11,5 +11,8 @@ public class ProxyMain {
         img1.mostrar();
         // esta ya se carga solo cuando se usa
         img2.mostrar();
+        img2.mostrar();
+        img2.mostrar();
+        img1.mostrar();
     }
 }

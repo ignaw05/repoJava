@@ -29,6 +29,7 @@ public class Database {
 
     public void agregarLibro(Libro libro) {
         libros.add(libro);
+        System.out.println(libro.getTitulo() + " agregado a la BD");
     }
 
     public List<Libro> getLibros() {

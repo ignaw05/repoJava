@@ -16,7 +16,7 @@ public class HomeTheaterFacade {
         dvd.on();
         projector.on();
         sound.on();
-        sound.setVolume(10);
+        sound.setVolume(100);
         dvd.play(movie);
     }
 

@@ -4,7 +4,7 @@ public class FlyweightDemo {
     public static void main(String[] args) {
         FabricaDeLetras fabrica = new FabricaDeLetras();
 
-        String texto = "hola hola";
+        String texto = "devolveme la campera";
 
         int x = 0;
         for (char c : texto.toCharArray()) {

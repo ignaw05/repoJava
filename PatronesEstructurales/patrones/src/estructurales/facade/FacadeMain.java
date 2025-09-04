@@ -8,7 +8,7 @@ public class FacadeMain {
 
         HomeTheaterFacade homeTheater = new HomeTheaterFacade(dvd, projector, sound);
 
-        homeTheater.watchMovie("El Señor de los Anillos");
+        homeTheater.watchMovie("John Wick");
         homeTheater.endMovie();
     }
 }
