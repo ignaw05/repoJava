@@ -1,10 +1,13 @@
 import adapter.*;
 import bridge.*;
 import decorator.*;
+import facade.*;
+import flyweight.*;
 
 public class Main {
     public static void main(String[] args) {
 
+        // PATRON ADAPTER
         System.out.println("--- ADAPTER ---");
         ImpresoraPDF impresora = new ImpresoraPDF();
 
@@ -13,6 +16,7 @@ public class Main {
         impresora.imprimir("docx","mi_tp2.docx");
         impresora.imprimir("mp4","mi_tp2.mp4");
 
+        // PATRON BRIDGE
         System.out.println("\n--- BRIDGE ---");
         CanalEnvio email = new Email();
         CanalEnvio sms = new SMS();
@@ -24,6 +28,7 @@ public class Main {
         recordatorioSMS.enviarNotificacion();
         promocionMail.enviarNotificacion();
 
+        //PATRON DECORATOR
         System.out.println("\n--- DECORATOR ---");
         System.out.println("Suscripcion 1");
         Plan plan1 = new PlanBasico();
@@ -39,7 +44,27 @@ public class Main {
         plan2 = new DescargasOffline(plan2);
         System.out.println(plan2.descripcion() +" - "+ plan2.costo());
 
+        // PATRON FACADE
+        System.out.println("\n--- FACADE ---");
+        TiendaFacade tienda = new TiendaFacade(new Carrito(), new Pago(), new Envio());
+        Producto ps5 = new Producto("PS5", 500000);
+        tienda.comprar(ps5,"Coronel Rodriguez 912");
 
+        // PATRON FLYWEIGHT
+        System.out.println("\n--- FLYWEIGHT ---");
+        FabricaDeArboles fabrica = new FabricaDeArboles();
+
+        String[] tipos = {"Roble","Pino","Abedul","Cerezo"};
+        String textura = "pinchoso";
+        String color = "marron";
+        int x = 1;
+
+        for (int i = 0; i < 25; i++){ // cambiar a 1.000.000 como dice el TP, pero la consola no muestra todos
+            for (String tipo : tipos) {
+                Arbol arbol = fabrica.obtenerArbol(tipo, textura, color);
+                arbol.mostrar(x++,50);
+            }
+        }
 
 
     }
