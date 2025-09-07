@@ -1,5 +1,8 @@
 import adapter.*;
 import bridge.*;
+import composite.ElementoMenu;
+import composite.Menu;
+import composite.Plato;
 import decorator.*;
 import facade.*;
 import flyweight.*;
@@ -70,7 +73,7 @@ public class Main {
             }
         }
 
-
+        // PATRON PROXY
         System.out.println("--- PROXY ---");
         Usuario user1 = new Usuario("Ignaw",true);
         Usuario user2 = new Usuario("Luli", false);
@@ -79,7 +82,24 @@ public class Main {
         secretFile.abrir(user1);
         secretFile.abrir(user2);
 
+        // PATRON COMPOSITE
+        System.out.println("--- COMPOSITE ---");
+        ElementoMenu plato1 = new Plato("Milanesa napolitana", 10900);
+        ElementoMenu plato2 = new Plato("Cheeseburguer doble", 9700);
+        ElementoMenu postre1 = new Plato("Flan con dulce de leche", 4500);
+        ElementoMenu postre2 = new Plato("Brownie con crema", 6200);
 
+        Menu menuPpal1 = new Menu("Menu Principal");
+        menuPpal1.agregarElemento(plato1);
+        menuPpal1.agregarElemento(plato2);
+
+        Menu menuPostres1 = new Menu("Postres");
+        menuPostres1.agregarElemento(postre1);
+        menuPostres1.agregarElemento(postre2);
+
+        menuPpal1.agregarElemento(menuPostres1);
+
+        menuPpal1.mostrar();
 
 
 
