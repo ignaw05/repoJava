@@ -15,6 +15,7 @@ public class Main {
     public static void main(String[] args) {
 
         // PATRON ADAPTER
+        // Se usa la clase ImpresoraAdapter para imprimir otros tipos de archivo permitidos
         System.out.println("--- ADAPTER ---");
         ImpresoraPDF impresora = new ImpresoraPDF();
 
@@ -24,6 +25,8 @@ public class Main {
         impresora.imprimir("mp4","mi_tp2.mp4");
 
         // PATRON BRIDGE
+        // Se usa la clase abstracta TipoNotificacion para los distintos tipos
+        // que implementan la interfaz CanalEnvio con sus metodos
         System.out.println("\n--- BRIDGE ---");
         CanalEnvio email = new Email();
         CanalEnvio sms = new SMS();
@@ -36,6 +39,7 @@ public class Main {
         promocionMail.enviarNotificacion();
 
         //PATRON DECORATOR
+        // Añade responsabilidades al planBasico sin crear muchas subclases con todas las combinaciones
         System.out.println("\n--- DECORATOR ---");
         System.out.println("Suscripcion 1");
         Plan plan1 = new PlanBasico();
@@ -52,12 +56,15 @@ public class Main {
         System.out.println(plan2.descripcion() +" - "+ plan2.costo());
 
         // PATRON FACADE
+        // Se usa la tiendaFacade para ocultar el procedimiento que involucra la compra,
+        // y solo usar la funcion comprar()
         System.out.println("\n--- FACADE ---");
         TiendaFacade tienda = new TiendaFacade(new Carrito(), new Pago(), new Envio());
         Producto ps5 = new Producto("PS5", 500000);
         tienda.comprar(ps5,"Coronel Rodriguez 912");
 
         // PATRON FLYWEIGHT
+        // Se crea solo un objeto del tipo de arbol que necesitamos y luego se usa el mismo objeto
         System.out.println("\n--- FLYWEIGHT ---");
         FabricaDeArboles fabrica = new FabricaDeArboles();
 
@@ -74,6 +81,7 @@ public class Main {
         }
 
         // PATRON PROXY
+        // Se usa ArchivoProxy para evaluar si es accesible dependiendo del tipo de acceso que tiene el usuario
         System.out.println("--- PROXY ---");
         Usuario user1 = new Usuario("Ignaw",true);
         Usuario user2 = new Usuario("Luli", false);
@@ -83,6 +91,7 @@ public class Main {
         secretFile.abrir(user2);
 
         // PATRON COMPOSITE
+        // Se crean los ElementoMenu para que sean tratados de la misma manera los platos y los menu
         System.out.println("--- COMPOSITE ---");
         ElementoMenu plato1 = new Plato("Milanesa napolitana", 10900);
         ElementoMenu plato2 = new Plato("Cheeseburguer doble", 9700);
