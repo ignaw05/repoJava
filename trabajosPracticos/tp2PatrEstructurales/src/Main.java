@@ -3,6 +3,10 @@ import bridge.*;
 import decorator.*;
 import facade.*;
 import flyweight.*;
+import proxy.Archivo;
+import proxy.ArchivoProxy;
+import proxy.ArchivoReal;
+import proxy.Usuario;
 
 public class Main {
     public static void main(String[] args) {
@@ -65,6 +69,18 @@ public class Main {
                 arbol.mostrar(x++,50);
             }
         }
+
+
+        System.out.println("--- PROXY ---");
+        Usuario user1 = new Usuario("Ignaw",true);
+        Usuario user2 = new Usuario("Luli", false);
+
+        Archivo secretFile = new ArchivoProxy(new ArchivoReal("formula_secreta.pdf","Mayonesa y Ketchup nomas"));
+        secretFile.abrir(user1);
+        secretFile.abrir(user2);
+
+
+
 
 
     }
