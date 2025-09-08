@@ -1,8 +1,11 @@
 package prototype;
 
 import java.time.LocalDate;
+
+import abstractfactory.AbstractFactory;
 import builder.Usuario;
 import factory.Libro;
+import factory.LogisticaLibro;
 
 public class Prestamo implements Cloneable { // Si no implementa CLoneable no puede clonarse
     private Libro libro;
@@ -23,6 +26,16 @@ public class Prestamo implements Cloneable { // Si no implementa CLoneable no pu
             return (Prestamo) super.clone();
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    protected Prestamo cloneDeep() {
+        try {
+            Prestamo clon = (Prestamo) super.clone();
+            clon.libro = LogisticaLibro.crearLibro(this.libro.getTitulo(),this.libro.getAutor(),this.libro.getPrecio(),"Fisico");
+            return clon;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
         }
     }
 
