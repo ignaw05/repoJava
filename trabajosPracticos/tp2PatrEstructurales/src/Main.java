@@ -82,17 +82,17 @@ public class Main {
 
         // PATRON PROXY
         // Se usa ArchivoProxy para evaluar si es accesible dependiendo del tipo de acceso que tiene el usuario
-        System.out.println("--- PROXY ---");
+        System.out.println("\n--- PROXY ---");
         Usuario user1 = new Usuario("Ignaw",true);
         Usuario user2 = new Usuario("Luli", false);
 
-        Archivo secretFile = new ArchivoProxy(new ArchivoReal("formula_secreta.pdf","Mayonesa y Ketchup nomas"));
+        Archivo secretFile = new ArchivoProxy("receta secreta","jamon y queso");
         secretFile.abrir(user1);
         secretFile.abrir(user2);
 
         // PATRON COMPOSITE
         // Se crean los ElementoMenu para que sean tratados de la misma manera los platos y los menu
-        System.out.println("--- COMPOSITE ---");
+        System.out.println("\n--- COMPOSITE ---");
         ElementoMenu plato1 = new Plato("Milanesa napolitana", 10900);
         ElementoMenu plato2 = new Plato("Cheeseburguer doble", 9700);
         ElementoMenu postre1 = new Plato("Flan con dulce de leche", 4500);
