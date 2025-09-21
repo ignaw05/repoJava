@@ -19,6 +19,10 @@ public class Alumno implements Observer {
         cursos.add(curso);
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
     public CursoIterator iterator(){
         return new CursosAlumnoIterator(cursos);
     }

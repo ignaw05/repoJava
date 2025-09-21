@@ -10,6 +10,7 @@ import mediator.Usuario;
 import mediator.UsuarioConcreto;
 import memento.Examen;
 import memento.Historial;
+import state.Inscripcion;
 
 public class Main {
     public static void main(String[] args) {
@@ -112,6 +113,13 @@ public class Main {
         curso1.addObserver(alumno1);
         curso1.addObserver(alumno2);
         curso1.setHorario("Lunes 21Hs");
+
+//        STATE (REVISAR)
+        System.out.println("\n-- STATE ---");
+        Inscripcion inscripcion1 = new Inscripcion(curso1,alumno1);
+        inscripcion1.aceptar();
+        inscripcion1.aceptar();
+        inscripcion1.rechazar();
 
     }
 }
