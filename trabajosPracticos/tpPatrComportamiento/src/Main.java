@@ -1,9 +1,23 @@
 import chainOfResponsibility.*;
 import command.*;
+import entities.Alumno;
+import entities.Curso;
+import iterator.CursoIterator;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("--- CHAIN OF RESPONSIBILITY ---");
+//        ENTITIES
+        System.out.println("--- ENTITIES ---");
+        Curso curso1 = new Curso("Desarrollo de Software");
+        Curso curso2 = new Curso("Diseño de sistemas");
+        Curso curso3 = new Curso("Redes neuronales");
+
+        Alumno alumno1 = new Alumno("Igna");
+        Alumno alumno2 = new Alumno("Ale");
+        Alumno alumno3 = new Alumno("Lucia");
+
+//        CHAIN OF RESPONSIBILITY
+        System.out.println("\n--- CHAIN OF RESPONSIBILITY ---");
         Handler asistente = new Asistente();
         Handler profesor = new Profesor();
         Handler coordinador = new Coordinador();
@@ -19,11 +33,11 @@ public class Main {
         asistente.handle(solicitud2);
         asistente.handle(solicitud3);
 
+//      COMMAND
         System.out.println("\n--- COMMAND ---");
-        Curso curso = new Curso("Desarrollo de Software");
-        Command inscribir = new InscribirseCursoCommand(curso);
-        Command abandonar = new AbandonarCursoCommand(curso);
-        Command certificado = new SolicitarCertificadoCommand(curso);
+        Command inscribir = new InscribirseCursoCommand(curso1);
+        Command abandonar = new AbandonarCursoCommand(curso1);
+        Command certificado = new SolicitarCertificadoCommand(curso1);
 
         GestionCursoInvoker gestionCurso = new GestionCursoInvoker();
         gestionCurso.setCommand(inscribir);
@@ -34,5 +48,16 @@ public class Main {
 
         gestionCurso.setCommand(certificado);
         gestionCurso.ejecutar();
+
+//        ITERATOR
+        System.out.println("\n--- ITERATOR ---");
+        alumno1.agregarCurso(curso1);
+        alumno1.agregarCurso(curso2);
+        alumno1.agregarCurso(curso3);
+
+        CursoIterator iterador = alumno1.iterator();
+        while (iterador.hasNext()){
+            System.out.println(iterador.next().getNombre());
+        }
     }
 }

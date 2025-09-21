@@ -1,5 +1,7 @@
 package command;
 
+import entities.Curso;
+
 public class SolicitarCertificadoCommand implements Command{
     private Curso curso;
 

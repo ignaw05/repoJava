@@ -1,4 +1,4 @@
-package command;
+package entities;
 
 public class Curso {
     private String nombre;
@@ -15,5 +15,9 @@ public class Curso {
     }
     public void certificado() {
         System.out.println("Solicitando certificado de "+nombre);
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 }
