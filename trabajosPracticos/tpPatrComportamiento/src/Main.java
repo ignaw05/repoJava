@@ -8,6 +8,8 @@ import mediator.ChatMediator;
 import mediator.ChatRoom;
 import mediator.Usuario;
 import mediator.UsuarioConcreto;
+import memento.Examen;
+import memento.Historial;
 
 public class Main {
     public static void main(String[] args) {
@@ -84,7 +86,25 @@ public class Main {
         alumno1.getUsuario().enviar("Hola profe tengo una duda con este TP");
         profesor1.getUsuario().enviar("Lo vemos en clase el miercoles");
 
-        System.out.println("--- MEMENTO ---");
+//        MEMENTO
+        System.out.println("\n--- MEMENTO ---");
+        Examen examen = new Examen(curso1,"Que es JAVA?");
+        Historial historial = new Historial();
 
+        examen.agregarRespuesta("JAVA es un lenguaje");
+        historial.guardar(examen.save());
+        examen.agregarRespuesta(" de programacion");
+        historial.guardar(examen.save());
+        examen.agregarRespuesta(" orientada a objetos");
+        historial.guardar(examen.save());
+        System.out.println("Preguntas: "+examen.getPreguntas());
+        System.out.println("Respuestas: "+examen.getRespuestas());
+
+        examen.restore(historial.deshacer());
+        System.out.println("Restore 1: "+examen.getRespuestas());
+        examen.restore(historial.deshacer());
+        System.out.println("Restore 2: "+examen.getRespuestas());
+        examen.restore(historial.deshacer());
+        System.out.println("Restore 3: "+examen.getRespuestas());
     }
 }
