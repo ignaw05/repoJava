@@ -2,7 +2,12 @@ import chainOfResponsibility.*;
 import command.*;
 import entities.Alumno;
 import entities.Curso;
+import entities.Profesor;
 import iterator.CursoIterator;
+import mediator.ChatMediator;
+import mediator.ChatRoom;
+import mediator.Usuario;
+import mediator.UsuarioConcreto;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,10 +21,12 @@ public class Main {
         Alumno alumno2 = new Alumno("Ale");
         Alumno alumno3 = new Alumno("Lucia");
 
+        Profesor profesor1 = new Profesor("Gerardo Magni",curso1);
+
 //        CHAIN OF RESPONSIBILITY
         System.out.println("\n--- CHAIN OF RESPONSIBILITY ---");
         Handler asistente = new Asistente();
-        Handler profesor = new Profesor();
+        Handler profesor = profesor1;
         Handler coordinador = new Coordinador();
 
         Solicitud solicitud1 = new Solicitud("Problema de internet",1);
@@ -59,5 +66,25 @@ public class Main {
         while (iterador.hasNext()){
             System.out.println(iterador.next().getNombre());
         }
+
+//        MEDIATOR
+        System.out.println("\n--- MEDIATOR ---");
+        ChatMediator chat3k10 = new ChatRoom();
+        Usuario user1 = new UsuarioConcreto(chat3k10,"ignaw05");
+        Usuario user2 = new UsuarioConcreto(chat3k10,"gmagni");
+        Usuario user3 = new UsuarioConcreto(chat3k10,"alealbornoz");
+        alumno1.setUsuario(user1);
+        alumno2.setUsuario(user3);
+        profesor1.setUsuario(user2);
+
+        chat3k10.agregarUsuario(alumno1.getUsuario());
+        chat3k10.agregarUsuario(profesor1.getUsuario());
+        chat3k10.agregarUsuario(alumno2.getUsuario());
+
+        alumno1.getUsuario().enviar("Hola profe tengo una duda con este TP");
+        profesor1.getUsuario().enviar("Lo vemos en clase el miercoles");
+
+        System.out.println("--- MEMENTO ---");
+
     }
 }
