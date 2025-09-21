@@ -106,5 +106,12 @@ public class Main {
         System.out.println("Restore 2: "+examen.getRespuestas());
         examen.restore(historial.deshacer());
         System.out.println("Restore 3: "+examen.getRespuestas());
+
+//        OBSERVER
+        System.out.println("\n--- OBSERVER ---");
+        curso1.addObserver(alumno1);
+        curso1.addObserver(alumno2);
+        curso1.setHorario("Lunes 21Hs");
+
     }
 }

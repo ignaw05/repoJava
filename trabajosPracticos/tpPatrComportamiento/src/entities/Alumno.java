@@ -4,8 +4,9 @@ import iterator.CursoIterator;
 import iterator.CursosAlumnoIterator;
 import mediator.ChatMediator;
 import mediator.Usuario;
+import observer.Observer;
 
-public class Alumno {
+public class Alumno implements Observer {
     private java.util.List<Curso> cursos = new java.util.ArrayList<>();
     private String nombre;
     private Usuario usuario;
@@ -29,14 +30,9 @@ public class Alumno {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    //    @Override
-//    public void enviar(String mensaje) {
-//        System.out.println(nombre + " envia: "+mensaje);
-//        mediator.enviar(mensaje,this);
-//    }
-//
-//    @Override
-//    public void recibir(String mensaje) {
-//        System.out.println(nombre+ " recibe: "+mensaje);
-//    }
+
+    @Override
+    public void update(String msg, Curso curso) {
+        System.out.println(nombre+ " tiene un nuevo horario para "+curso.getNombre()+": "+msg);
+    }
 }
