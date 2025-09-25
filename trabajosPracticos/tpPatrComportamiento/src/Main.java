@@ -17,6 +17,10 @@ import strategy.PromedioSimple;
 import template.ReporteAcademico;
 import template.ReporteAlumno;
 import template.ReporteCurso;
+import visitor.AlumnoBecado;
+import visitor.AlumnoRegular;
+import visitor.CalcularBeca;
+import visitor.Visitor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -154,5 +158,14 @@ public class Main {
         reporteCurso1.generarReporte();
         System.out.println("\n");
         reporteAlumno1.generarReporte();
+
+//        VISITOR
+        System.out.println("\n--- VISITOR ---");
+        AlumnoRegular alumnoreg1 = new AlumnoRegular(100000D);
+        AlumnoBecado alumnobec1 = new AlumnoBecado(100000D);
+        Visitor calculadoraBeca = new CalcularBeca();
+
+        alumnoreg1.aceptar(calculadoraBeca);
+        alumnobec1.aceptar(calculadoraBeca);
     }
 }
