@@ -11,6 +11,12 @@ import mediator.UsuarioConcreto;
 import memento.Examen;
 import memento.Historial;
 import state.Inscripcion;
+import strategy.ExamenExtra;
+import strategy.PromedioPonderado;
+import strategy.PromedioSimple;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -115,11 +121,27 @@ public class Main {
         curso1.setHorario("Lunes 21Hs");
 
 //        STATE (REVISAR)
-        System.out.println("\n-- STATE ---");
+        System.out.println("\n--- STATE ---");
         Inscripcion inscripcion1 = new Inscripcion(curso1,alumno1);
         inscripcion1.aceptar();
         inscripcion1.aceptar();
         inscripcion1.rechazar();
 
+//        STRATEGY
+        System.out.println("\n--- STRATEGY ---");
+        List<Integer> notas = new ArrayList<>(3);
+        notas.add(10);
+        notas.add(9);
+        notas.add(4);
+
+        alumno1.setNotas(notas);
+        alumno1.setEstrategiaPromedio(new PromedioSimple());
+        alumno1.verPromedio();
+
+        alumno1.setEstrategiaPromedio(new PromedioPonderado());
+        alumno1.verPromedio();
+
+        alumno1.setEstrategiaPromedio(new ExamenExtra(7));
+        alumno1.verPromedio();
     }
 }

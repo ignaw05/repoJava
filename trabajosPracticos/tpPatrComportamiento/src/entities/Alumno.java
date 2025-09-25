@@ -5,11 +5,25 @@ import iterator.CursosAlumnoIterator;
 import mediator.ChatMediator;
 import mediator.Usuario;
 import observer.Observer;
+import strategy.CalculoNota;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Alumno implements Observer {
     private java.util.List<Curso> cursos = new java.util.ArrayList<>();
     private String nombre;
     private Usuario usuario;
+    private java.util.List<Integer> notas = new java.util.ArrayList<>();
+    private CalculoNota estrategiaPromedio;
+
+    public void setEstrategiaPromedio(CalculoNota estrategiaPromedio) {
+        this.estrategiaPromedio = estrategiaPromedio;
+    }
+
+    public void verPromedio(){
+        estrategiaPromedio.calcular(this.notas);
+    }
 
     public Alumno(String nombre) {
         this.nombre = nombre;
@@ -33,6 +47,14 @@ public class Alumno implements Observer {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public void setNotas(List<Integer> notas) {
+        this.notas = notas;
+    }
+
+    public List<Integer> getNotas() {
+        return notas;
     }
 
     @Override
