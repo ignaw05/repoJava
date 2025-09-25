@@ -14,6 +14,9 @@ import state.Inscripcion;
 import strategy.ExamenExtra;
 import strategy.PromedioPonderado;
 import strategy.PromedioSimple;
+import template.ReporteAcademico;
+import template.ReporteAlumno;
+import template.ReporteCurso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -143,5 +146,13 @@ public class Main {
 
         alumno1.setEstrategiaPromedio(new ExamenExtra(7));
         alumno1.verPromedio();
+
+//        TEMPLATE
+        System.out.println("\n--- TEMPLATE ---");
+        ReporteAcademico reporteCurso1 = new ReporteCurso(curso1);
+        ReporteAcademico reporteAlumno1 = new ReporteAlumno(alumno1,curso1);
+        reporteCurso1.generarReporte();
+        System.out.println("\n");
+        reporteAlumno1.generarReporte();
     }
 }
