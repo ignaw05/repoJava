@@ -88,7 +88,7 @@ public class Main {
         ChatMediator chat3k10 = new ChatRoom();
         Usuario user1 = new UsuarioConcreto(chat3k10,"ignaw05");
         Usuario user2 = new UsuarioConcreto(chat3k10,"gmagni");
-        Usuario user3 = new UsuarioConcreto(chat3k10,"alealbornoz");
+        Usuario user3 = new UsuarioConcreto(chat3k10,"alealbornoz🦜");
         alumno1.setUsuario(user1);
         alumno2.setUsuario(user3);
         profesor1.setUsuario(user2);
